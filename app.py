@@ -1,4 +1,4 @@
-
+'''''
 from flask import Flask, render_template, request, redirect, url_for
 import csv
 import os
@@ -79,5 +79,34 @@ def success():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
+'''
+
+
+from flask import Flask, render_template, request, redirect, url_for, flash
+
+app = Flask(__name__)
+app.secret_key = "your_secret_key"
+
+# Home / Registration page
+@app.route("/", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        phone = request.form.get("phone")
+        gender = request.form.get("gender")
+
+        # Simple validation
+        if not name or not email or not phone:
+            flash("Please fill all required fields!", "danger")
+            return redirect(url_for("register"))
+        
+        flash(f"Registration successful for {name}!", "success")
+        return redirect(url_for("register"))
+
+    return render_template("register.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 

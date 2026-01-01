@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+    <title>Registration Form</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Optional: Bootstrap for easy responsive design -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <h1 class="text-center">Student Registration Form</h1>
 
-<div class="form-box">
-    <h2>Student Registration</h2>
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} mt-3">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
-    <form action="/submit" method="post">
+        <form method="POST" class="registration-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
 
-        <input type="text" name="name" placeholder="Student Name" required>
-        <input type="text" name="father" placeholder="Father Name" required>
-        <input type="text" name="mother" placeholder="Mother Name" required>
-        <input type="text" name="phone" placeholder="Phone Number" required>
-        <input type="email" name="email" placeholder="Email" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
 
-        <select name="gender" required>
-            <option value="">Select Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-        </select>
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter Phone Number" required>
 
-        <button type="submit" class="btn blue">Submit</button>
-    </form>
-</div>
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
 
+            <button type="submit">Register</button>
+        </form>
+    </div>
 </body>
 </html>

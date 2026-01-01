@@ -1,46 +1,89 @@
-body {
-    font-family: Arial;
-    background: #f4f6f9;
+/* General reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
+/* Container */
 .container {
-    text-align: center;
-    margin-top: 50px;
+    width: 90%;
+    max-width: 600px; /* PC max width */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.logo {
-    width: 200px;
+/* Headings */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-.btn {
-    width: 300px;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    margin: 10px;
-    cursor: pointer;
-    color: white;
+/* Form styling */
+.registration-form {
+    display: flex;
+    flex-direction: column;
 }
 
-.blue {
-    background: #0b4da2;
+.registration-form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
 }
 
-.red {
-    background: #b51616;
-}
-
-.form-box {
-    width: 400px;
-    background: white;
-    padding: 30px;
-    margin: auto;
-    margin-top: 50px;
-    box-shadow: 0px 0px 10px gray;
-}
-
-input, select {
-    width: 100%;
+.registration-form input,
+.registration-form select,
+.registration-form button {
     padding: 10px;
-    margin: 8px 0;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.registration-form input:focus,
+.registration-form select:focus {
+    outline: none;
+    border-color: #11d583;
+}
+
+.registration-form button {
+    margin-top: 20px;
+    background-color: #11d583;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registration-form button:hover {
+    background-color: #0da36f;
+}
+
+/* Flash messages */
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .registration-form input,
+    .registration-form select,
+    .registration-form button {
+        width: 100%;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
 }
