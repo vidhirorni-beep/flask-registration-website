@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <img src="{{ url_for('static', filename='logo.png') }}" class="logo">
+
+    <h1>Welcome to Choudhary University of Chandigarh</h1>
+
+    <a href="/register">
+        <button class="btn blue">Registration Form Fill Up</button>
+    </a>
+
+    <button class="btn red" onclick="window.close()">Exit</button>
+</div>
+
+</body>
+</html>
+
